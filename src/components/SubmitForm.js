@@ -5,15 +5,14 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 
-function SubmitForm({setFirstName, setLastName}) {
-    const [first,setFirst]=useState("")
-    const [last,setLast]=useState("")
+function SubmitForm({names, setNames}) {
+    const [firstName,setFirstName]=useState("")
+    const [lastName,setLastName]=useState("")
 //   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setFirstName(first)
-    setLastName(last)
+    setNames([...names,{firstName,lastName}])
     // const form = event.currentTarget;
     // if (form.checkValidity() === false) {
     //   event.preventDefault();
@@ -24,13 +23,13 @@ function SubmitForm({setFirstName, setLastName}) {
   };
 
   function handleOnChangeFirst(e){
-    setFirst(e.target.value)
+    setFirstName(e.target.value)
   }
 
   function handleOnChangeLast(e){
-    setLast(e.target.value)
+    setLastName(e.target.value)
   }
-  console.log({first,last})
+  console.log({firstName,lastName})
   return (
     <Form noValidate onSubmit={handleSubmit}>
       <Row className="mb-3">
