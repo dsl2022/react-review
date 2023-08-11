@@ -3,18 +3,14 @@ import './App.css';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
-  // const [firstName, setFirstName]=useState("")
-  // const [lastName, setLastName]=useState("")
   const [names, setNames]=useState([])
   function renderName(){
-    return names.map(({firstName, lastName})=><li>{firstName} {lastName}</li>)
+    return names.map(({firstName, lastName},index)=><li key={index}>{firstName} {lastName}</li>)
   }
+  console.log("test rendername",renderName())
   return (
     <div className="App">
       <SubmitForm names={names} setNames={setNames} />
-      {/* <span>{firstName}</span>
-      <br/>
-      <span>{lastName}</span> */}
       <ul>
       {renderName()}
       </ul>
